@@ -1,6 +1,6 @@
 #include "etudiant.h"
 
-int init_etudiant(Etudiant *e, int n){
+int init_etudiant(etudiant *e, int n){
     int i = 0, j = 0,tmp;
 
     e->a_dormi = false;
@@ -36,7 +36,7 @@ int init_etudiant(Etudiant *e, int n){
   	return EXIT_SUCCESS;
 }
 
-int dormir(Etudiant *e){
+int dormir(etudiant *e){
   if(e){
     if(e->c_est_deplacer == false){
         e->a_dormi = true;
@@ -47,7 +47,7 @@ int dormir(Etudiant *e){
   return FAILURE;
 }
 
-int manger(Etudiant *e){
+int manger(etudiant *e){
   if(e){
     e->a_manger = true;
     return DONE;
@@ -56,7 +56,7 @@ int manger(Etudiant *e){
 }
 
 
-int deplacer(Etudiant *e){
+int deplacer(etudiant *e){
   if(e){
     e->c_est_deplacer = !e->c_est_deplacer;
     return DONE;
@@ -64,7 +64,7 @@ int deplacer(Etudiant *e){
   return FAILURE;
 }
 
-int etudier(Etudiant *e){
+int etudier(etudiant *e){
   if(e){
     e->a_etudier = true;
     return DONE;
@@ -72,7 +72,7 @@ int etudier(Etudiant *e){
   return FAILURE;
 }
 
-int examen(Etudiant *e){
+int examen(etudiant *e){
   if(e){
     if(e->a_etudier && !e->a_eu_examen) e->a_eu_examen = true;
     return DONE;
@@ -80,7 +80,7 @@ int examen(Etudiant *e){
   return FAILURE;
 }
 
-bool resultat(Etudiant *e){
+bool resultat(etudiant *e){
   if(e){
     if(e->a_eu_examen){
       int note=rand()%21;
@@ -93,7 +93,7 @@ bool resultat(Etudiant *e){
   return false;
 }
 
-void recommencer(Etudiant *e){
+void recommencer(etudiant *e){
   static int nb_recommencer = 0;
   init_etudiant(e,e->nbr_actions);
   nb_recommencer++;

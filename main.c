@@ -32,7 +32,7 @@ int main(){
 
   	srand(time(NULL));
     int i,j;
-	Etudiant e1; // Création de l'étudiant
+	etudiant e1; // Création de l'étudiant
 
   	init_etudiant(&e1,5); // Initialisation de notre étudiant
 
