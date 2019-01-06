@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "parser.h"
 #include "etudiant.h"
-
-
 //Program function that is present in matrix
 
 
@@ -59,7 +58,7 @@ int main(){
     	for(j=0;j<e1.nbr_actions;j++)
           	assert(tab[i][j] == e1.matrice_relation[i][j]);
 
-
+    parseur("main.ccs");
 
     return EXIT_SUCCESS;
 }
