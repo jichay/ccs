@@ -20,6 +20,23 @@ char* reduc_string(char *str, char delim){
     return str2;
 }
 
+char* reduc_string_before(char *str, char delim){
+    int i = 0;
+    int j = 0;
+    while (str[i] != delim) {
+        i++;
+    }
+    char *str2 = (char*)malloc(i * sizeof(char));
+    i=0;
+    while (str[i] != delim) {
+        str2[i] = str[i];
+        i++;
+        j++;
+    }
+    str2[j++] = '\0';
+    return str2;
+}
+
 int nombre_process(char *nom_fichier){
     int nb_process = 0;
     char buffer[2000];
@@ -100,11 +117,48 @@ action *parseur(char *nom_fichier){
             if(strstr(buffer2, "c") != NULL)
             {
                 printf("Process Condi\n");
+                sscanf(buffer2,"%s",buffer3);
+                strcpy(p[pnb].nom,buffer3);
+
+                char *reduc = reduc_string(buffer,'=');
+
+                char buffer_tmp1[100];
+                char buffer_tmp2[100];
+                sscanf(reduc,"%s + %s",buffer_tmp1,buffer_tmp2);
+                char *buffer_reussite = reduc_string_before(reduc,'+');
+                char *buffer_echec = reduc_string(reduc,'+');
+                /*printf("%s\n",buffer_reussite);
+                printf("%s\n",buffer_echec);*/
+
+
+                p[pnb].next_s = NULL;
+                p[pnb].next_e = NULL;
+                char *bfr = strtok(buffer_reussite, " %s;"); // on vient split la string
+                while(bfr != NULL)
+                {
+                    //p[pnb].next_s = ajoute_en_queue_rec(p[pnb].next_s,creation_maillon(ptr));
+                    printf("%s\n",bfr);
+                    p[pnb].next_s = ajoute_en_queue_rec(p[pnb].next_s,creation_maillon(bfr));
+                    bfr = strtok(NULL, " %s;");
+                }
+
+                char *bfe = strtok(buffer_echec, " %s;"); // on vient split la string
+                while(bfe != NULL)
+                {
+                    //p[pnb].next_s = ajoute_en_queue_rec(p[pnb].next_s,creation_maillon(ptr));
+                    printf("%s\n",bfe);
+                    p[pnb].next_e = ajoute_en_queue_rec(p[pnb].next_s,creation_maillon(bfe));
+                    bfe = strtok(NULL, " %s;");
+                }
+
                 //read apres =
                     //if + est present ok sinon erreur
                         //get process avant present
                         //get process apres present
                     //mettre dans liste chainée
+                affiche_liste_rec(p[pnb].next_s);
+                printf("\n");
+                affiche_liste_rec(p[pnb].next_e);
             }
             else //Process classique
             {
@@ -113,12 +167,13 @@ action *parseur(char *nom_fichier){
                 char *reduc = reduc_string(buffer,'='); //reduit la string a partir du =
                 char *ptr = strtok(reduc, " %s;"); // on vient split la string _UneAction;
                 p[pnb].next_s = NULL;
+                p[pnb].next_e = NULL;
                 while(ptr != NULL)
                 {
                     p[pnb].next_s = ajoute_en_queue_rec(p[pnb].next_s,creation_maillon(ptr));
                     ptr = strtok(NULL, " %s;");
                 }
-                affiche_liste_rec(p[pnb].next_s);
+
             }
             pnb++;
         }
