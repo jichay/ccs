@@ -7,8 +7,8 @@
 #include <stdbool.h>
 #include <assert.h>
 
-#define DONE 1;
-#define FAILURE 0;
+#define DONE 1
+#define FAILURE 0
 
 /**
  * \struct etudiant
@@ -29,6 +29,7 @@ typedef struct etudiant{
     bool a_eu_examen;
     int resultat;
     bool fin;
+    int derniere_action;
     int nbr_actions;
 
     int matrice_relation[5][5];
@@ -41,7 +42,7 @@ typedef struct etudiant{
  * \param n
  * \return issu de l'excécution
  */
-int init_etudiant(etudiant *e, int);
+int init_etudiant(etudiant *e, int n);
 
 /**
  * \brief simuler dormir pour l'etudiant (changer etat interne structure)

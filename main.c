@@ -3,29 +3,10 @@
 #include <string.h>
 #include "parser.h"
 #include "etudiant.h"
-//Program function that is present in matrix
+#include "execute.h"
 
 
-void linked_list_browser(char *s)
-{
-    //Verify if first is a Process
 
-    if(strstr(s, "()") != NULL) //Verify if process identifier is present
-    {
-        printf("Test");
-    }
-
-    if (strcmp(s, "test") == 0) //Check if action exist or not
-    {
-      //Call certain function
-    }
-    else
-    {
-        //Default case, so action doesn't exist
-    }
-
-
-}
 
 int main(){
 
@@ -36,7 +17,6 @@ int main(){
   	init_etudiant(&e1,5); // Initialisation de notre étudiant
 
   	/* test unitaires pour chacune des données de la structure */
-
   	assert(e1.nbr_actions == 5);
   	assert(e1.a_dormi == false);
     assert(e1.a_manger == false);
@@ -64,7 +44,8 @@ int main(){
     assert(strcmp(p[1].nom,"Rc()") == 0);
     assert(strcmp(p[0].next_s->nom,"dormir") == 0);
 
+    execute_liste_rec(p[0].next_s, &e1);
+
     free(p);
     return EXIT_SUCCESS;
 }
-

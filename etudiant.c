@@ -1,8 +1,8 @@
 #include "etudiant.h"
 
-int init_etudiant(etudiant *e, int n){
+int init_etudiant(etudiant *e, int n)
+{
     int i = 0, j = 0,tmp;
-
     e->a_dormi = false;
     e->a_manger = false;
     e->c_est_deplacer = false;
@@ -11,6 +11,7 @@ int init_etudiant(etudiant *e, int n){
     e->resultat = -1;
     e->fin = false;
     e->nbr_actions = n;
+    e->derniere_action = -1;
 
   	FILE* fichier = NULL;
     fichier = fopen("./config_etudiant.txt", "r");
@@ -36,11 +37,15 @@ int init_etudiant(etudiant *e, int n){
   	return EXIT_SUCCESS;
 }
 
-int dormir(etudiant *e){
+int dormir(etudiant *e)
+{
   if(e){
-    if(e->c_est_deplacer == false){
+    if(e->c_est_deplacer == false)
+    {
+        e->derniere_action = 0;
         e->a_dormi = true;
         e->a_manger = false;
+        printf("L'etudiant dors\n");
         return DONE;
     }
   }
@@ -49,7 +54,9 @@ int dormir(etudiant *e){
 
 int manger(etudiant *e){
   if(e){
+    e->derniere_action = 1;
     e->a_manger = true;
+    printf("L'etudiant mange\n");
     return DONE;
   }
   return FAILURE;
@@ -58,7 +65,9 @@ int manger(etudiant *e){
 
 int deplacer(etudiant *e){
   if(e){
+    e->derniere_action = 2;
     e->c_est_deplacer = !e->c_est_deplacer;
+    printf("L'etudiant se deplace\n");
     return DONE;
   }
   return FAILURE;
@@ -66,7 +75,9 @@ int deplacer(etudiant *e){
 
 int etudier(etudiant *e){
   if(e){
+    e->derniere_action = 3;
     e->a_etudier = true;
+    printf("L'etudiant etudie\n");
     return DONE;
   }
   return FAILURE;
@@ -74,7 +85,11 @@ int etudier(etudiant *e){
 
 int examen(etudiant *e){
   if(e){
-    if(e->a_etudier && !e->a_eu_examen) e->a_eu_examen = true;
+    e->derniere_action = 4;
+    if(e->a_etudier && !e->a_eu_examen){
+      e->a_eu_examen = true;
+      printf("L'etudiant passe son examen\n");
+    }
     return DONE;
   }
   return FAILURE;

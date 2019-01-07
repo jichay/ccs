@@ -11,13 +11,6 @@ typedef struct action{
 	struct action *next_e; //Utilisé pour le process conditionnel
 }action;
 
-typedef struct process{
-    char* nom;
-    struct action *next;
-}process;
-
-
-
 action *parseur(char *nom_fichier);
 
 
