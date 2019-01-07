@@ -36,9 +36,15 @@ void execute_liste_rec(action *liste, etudiant *e)
         else if(strcmp(liste->nom,"deplacer") == 0)
         {
             if(e->derniere_action == -1){
-                deplacer(e);
+                if(deplacer(e) == FAILURE){
+                    printf("Action non réalisable!\n");
+                    return EXIT_FAILURE;
+                }
             }else if(e->matrice_relation[e->derniere_action][2]){
-                deplacer(e);
+                if(deplacer(e) == FAILURE){
+                    printf("Action non réalisable!\n");
+                    return EXIT_FAILURE;
+                }
             }
         }
         else if(strcmp(liste->nom,"etudier") == 0)
