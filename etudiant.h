@@ -37,8 +37,8 @@ typedef struct etudiant{
 } etudiant;
 
 /**
- * \brief simuler dormir pour l'etudiant (changer etat interne structure)
- * \param E
+ * \brief Initialise tout les composants de etudiant
+ * \param e
  * \param n
  * \return issu de l'excécution
  */
@@ -52,44 +52,43 @@ int init_etudiant(etudiant *e, int n);
 int dormir(etudiant *e);
 
 /**
- * \brief simuler dormir pour l'etudiant (changer etat interne structure)
- * \param E
+ * \brief simuler manger pour l'etudiant (changer etat interne structure)
+ * \param e
  * \return issu de l'excécution
  */
 int manger(etudiant *e);
 
 /**
- * \brief simuler dormir pour l'etudiant (changer etat interne structure)
- * \param E
+ * \brief simuler deplacer pour l'etudiant (changer etat interne structure)
+ * \param e
  * \return issu de l'excécution
  */
 int deplacer(etudiant *e);
 
 /**
- * \brief simuler dormir pour l'etudiant (changer etat interne structure)
- * \param E
+ * \brief simuler etudier pour l'etudiant (changer etat interne structure)
+ * \param e
  * \return issu de l'excécution
  */
 int etudier(etudiant *e);
 
 /**
- * \brief simuler dormir pour l'etudiant (changer etat interne structure)
- * \param E
+ * \brief simuler examen pour l'etudiant (changer etat interne structure)
+ * \param e
  * \return issu de l'excécution
  */
 int examen(etudiant *e);
 
 /**
- * \brief simuler dormir pour l'etudiant (changer etat interne structure)
- * \param E
- * \return issu de l'excécution
+ * \brief permet de savoir si l'etudiant a ru son examen
+ * \param e
+ * \return true si il a eu son examen sinon false
  */
 bool resultat(etudiant *e);
 
 /**
- * \brief simuler dormir pour l'etudiant (changer etat interne structure)
- * \param E
- * \return issu de l'excécution
+ * \brief permet de recommencer
+ * \param e
  */
 void recommencer(etudiant *e);
 

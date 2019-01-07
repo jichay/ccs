@@ -44,7 +44,7 @@ int main(){
     assert(strcmp(p[1].nom,"Rc()") == 0);
     assert(strcmp(p[0].next_s->nom,"dormir") == 0);
 
-    execute_liste_rec(p[0].next_s, &e1);
+    execute_liste_rec(p[0].next_s, &e1); //L'etudiant peut avoir son examen il faut relancer pour avoir un resultat different
 
     free(p);
     return EXIT_SUCCESS;
