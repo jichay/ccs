@@ -58,8 +58,13 @@ int main(){
     	for(j=0;j<e1.nbr_actions;j++)
           	assert(tab[i][j] == e1.matrice_relation[i][j]);
 
-    parseur("main.ccs");
+    action *p = parseur("main.ccs");
 
+    assert(strcmp(p[0].nom,"E()") == 0);
+    assert(strcmp(p[1].nom,"Rc()") == 0);
+    assert(strcmp(p[0].next_s->nom,"dormir") == 0);
+
+    free(p);
     return EXIT_SUCCESS;
 }
 

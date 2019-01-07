@@ -10,13 +10,14 @@ char* reduc_string(char *str, char delim){
         i++;
     }
     i++;
-    char *str2 = (char*)malloc((strlen(str) - i) * sizeof(char));
+    char *str2 = (char*)calloc((strlen(str) - i), sizeof(char));
+    i++;
     while (str[i] != '\0') {
         str2[j] = str[i];
         i++;
         j++;
     }
-    str2[j++] = '\0';
+    str2[j] = '\0';
     return str2;
 }
 
@@ -33,7 +34,7 @@ char* reduc_string_before(char *str, char delim){
         i++;
         j++;
     }
-    str2[j++] = '\0';
+    str2[j] = '\0';
     return str2;
 }
 
@@ -115,9 +116,10 @@ void affiche_liste_rec_e(action *liste)
 action *parseur(char *nom_fichier){
   	int nb_process = nombre_process(nom_fichier);
   	int pnb = 0;
-    char buffer[2000];
-    char buffer2[20];
-    char buffer3[20];
+    char buffer[2000]={0};
+    char buffer2[20]={0};
+    char buffer3[20]={0};
+
     action *p = (action*)malloc(sizeof(action)*nb_process);
     FILE *fp = NULL;
 
@@ -126,6 +128,7 @@ action *parseur(char *nom_fichier){
 
     while(fscanf(fp, "%[^\n]", buffer) != EOF)
     {
+
         fgetc(fp); //lis le dernier '\n' pour passer a la ligne suivante
         sscanf(buffer,"%s",buffer2);
         if(strstr(buffer2, "()") != NULL)
@@ -135,9 +138,6 @@ action *parseur(char *nom_fichier){
                 sscanf(buffer2,"%s",buffer3);
                 strcpy(p[pnb].nom,buffer3);
                 char *reduc = reduc_string(buffer,'=');
-                char buffer_tmp1[100];
-                char buffer_tmp2[100];
-                sscanf(reduc,"%s + %s",buffer_tmp1,buffer_tmp2);
                 char *buffer_reussite = reduc_string_before(reduc,'+');
                 char *buffer_echec = reduc_string(reduc,'+');
                 p[pnb].next_s = NULL;
@@ -182,6 +182,7 @@ action *parseur(char *nom_fichier){
         //printf("%s\n",buffer2);
 
     }
+    printf("Parser end\n");
 	fclose(fp);
     return p;
 }
