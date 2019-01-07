@@ -73,6 +73,13 @@ action * ajoute_en_queue_rec(action *liste, action *m)
     return liste;
 }
 
+action * ajoute_en_queue_rec_e(action *liste, action *m)
+{
+    if(liste==NULL) return m;
+    liste->next_e=ajoute_en_queue_rec(liste->next_e,m);
+    return liste;
+}
+
 action * ajoute_queue(action * l, action * e){
     if (l==NULL)return e;
     action*temp=l;
@@ -91,8 +98,17 @@ void affiche_liste_rec(action *liste)
 {
     if(liste!=NULL)
     {
-        printf("%s->",liste->nom);
+        printf("->%s",liste->nom);
         affiche_liste_rec(liste->next_s);
+    }
+}
+
+void affiche_liste_rec_e(action *liste)
+{
+    if(liste!=NULL)
+    {
+        printf("->%s",liste->nom);
+        affiche_liste_rec(liste->next_e);
     }
 }
 
@@ -116,49 +132,28 @@ action *parseur(char *nom_fichier){
         {
             if(strstr(buffer2, "c") != NULL)
             {
-                printf("Process Condi\n");
                 sscanf(buffer2,"%s",buffer3);
                 strcpy(p[pnb].nom,buffer3);
-
                 char *reduc = reduc_string(buffer,'=');
-
                 char buffer_tmp1[100];
                 char buffer_tmp2[100];
                 sscanf(reduc,"%s + %s",buffer_tmp1,buffer_tmp2);
                 char *buffer_reussite = reduc_string_before(reduc,'+');
                 char *buffer_echec = reduc_string(reduc,'+');
-                /*printf("%s\n",buffer_reussite);
-                printf("%s\n",buffer_echec);*/
-
-
                 p[pnb].next_s = NULL;
                 p[pnb].next_e = NULL;
                 char *bfr = strtok(buffer_reussite, " %s;"); // on vient split la string
                 while(bfr != NULL)
                 {
-                    //p[pnb].next_s = ajoute_en_queue_rec(p[pnb].next_s,creation_maillon(ptr));
-                    printf("%s\n",bfr);
                     p[pnb].next_s = ajoute_en_queue_rec(p[pnb].next_s,creation_maillon(bfr));
                     bfr = strtok(NULL, " %s;");
                 }
-
                 char *bfe = strtok(buffer_echec, " %s;"); // on vient split la string
                 while(bfe != NULL)
                 {
-                    //p[pnb].next_s = ajoute_en_queue_rec(p[pnb].next_s,creation_maillon(ptr));
-                    printf("%s\n",bfe);
-                    p[pnb].next_e = ajoute_en_queue_rec(p[pnb].next_s,creation_maillon(bfe));
+                    p[pnb].next_e = ajoute_en_queue_rec_e(p[pnb].next_e,creation_maillon(bfe));
                     bfe = strtok(NULL, " %s;");
                 }
-
-                //read apres =
-                    //if + est present ok sinon erreur
-                        //get process avant present
-                        //get process apres present
-                    //mettre dans liste chainée
-                affiche_liste_rec(p[pnb].next_s);
-                printf("\n");
-                affiche_liste_rec(p[pnb].next_e);
             }
             else //Process classique
             {
@@ -173,7 +168,6 @@ action *parseur(char *nom_fichier){
                     p[pnb].next_s = ajoute_en_queue_rec(p[pnb].next_s,creation_maillon(ptr));
                     ptr = strtok(NULL, " %s;");
                 }
-
             }
             pnb++;
         }
