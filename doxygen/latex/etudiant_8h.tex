@@ -1,0 +1,216 @@
+\hypertarget{etudiant_8h}{}\section{etudiant.\+h File Reference}
+\label{etudiant_8h}\index{etudiant.h@{etudiant.h}}
+
+
+fichier etudiant avec ses variables et ses fonctions liee  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structetudiant}{etudiant}}
+\begin{DoxyCompactList}\small\item\em Structure etudiant qui represente l\textquotesingle{}objet sur lequel les actions seront execute.~\newline
+ actions possibles \+: 1) dormir 2) manger 3) deplacer 4) etudier 5) examen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{etudiant_8h_abe6b865c045f3e7c6892ef4f15ff5779}{D\+O\+NE}}~1
+\item 
+\#define \mbox{\hyperlink{etudiant_8h_a6d58f9ac447476b4e084d7ca383f5183}{F\+A\+I\+L\+U\+RE}}~0
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{etudiant_8h_a3e3ac5874d4ce78647a0d36aae992651}\label{etudiant_8h_a3e3ac5874d4ce78647a0d36aae992651}} 
+typedef struct \mbox{\hyperlink{structetudiant}{etudiant}} {\bfseries etudiant}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{etudiant_8h_ab491399abf8b8373cf9cb47077ffcc7c}{init\+\_\+etudiant}} (\mbox{\hyperlink{structetudiant}{etudiant}} $\ast$e, int n)
+\begin{DoxyCompactList}\small\item\em Initialise tout les composants de etudiant. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{etudiant_8h_a4cdbceb4b4cba498d04df4fe80a78d83}{dormir}} (\mbox{\hyperlink{structetudiant}{etudiant}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em simuler dormir pour l\textquotesingle{}etudiant (changer etat interne structure) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{etudiant_8h_a1f707e2a8c3de469f5bb7018ce684241}{manger}} (\mbox{\hyperlink{structetudiant}{etudiant}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em simuler manger pour l\textquotesingle{}etudiant (changer etat interne structure) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{etudiant_8h_a80df8585374f972bbc46252d071792eb}{deplacer}} (\mbox{\hyperlink{structetudiant}{etudiant}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em simuler deplacer pour l\textquotesingle{}etudiant (changer etat interne structure) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{etudiant_8h_a6793eb70ca32c5fb6bf10bb2233fe744}{etudier}} (\mbox{\hyperlink{structetudiant}{etudiant}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em simuler etudier pour l\textquotesingle{}etudiant (changer etat interne structure) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{etudiant_8h_a1454a17a803b243106208d078eb665cc}{examen}} (\mbox{\hyperlink{structetudiant}{etudiant}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em simuler examen pour l\textquotesingle{}etudiant (changer etat interne structure) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{etudiant_8h_ab2f84946e431a9780bf70e1b9d51ec5c}{resultat}} (\mbox{\hyperlink{structetudiant}{etudiant}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em permet de savoir si l\textquotesingle{}etudiant a ru son examen \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{etudiant_8h_a5eb2e2e6fa1d5c55cc35765ae36f6243}{recommencer}} (\mbox{\hyperlink{structetudiant}{etudiant}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em permet de recommencer \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+fichier etudiant avec ses variables et ses fonctions liee 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{etudiant_8h_abe6b865c045f3e7c6892ef4f15ff5779}\label{etudiant_8h_abe6b865c045f3e7c6892ef4f15ff5779}} 
+\index{etudiant.h@{etudiant.h}!DONE@{DONE}}
+\index{DONE@{DONE}!etudiant.h@{etudiant.h}}
+\subsubsection{\texorpdfstring{DONE}{DONE}}
+{\footnotesize\ttfamily \#define D\+O\+NE~1}
+
+define action reussite \mbox{\Hypertarget{etudiant_8h_a6d58f9ac447476b4e084d7ca383f5183}\label{etudiant_8h_a6d58f9ac447476b4e084d7ca383f5183}} 
+\index{etudiant.h@{etudiant.h}!FAILURE@{FAILURE}}
+\index{FAILURE@{FAILURE}!etudiant.h@{etudiant.h}}
+\subsubsection{\texorpdfstring{FAILURE}{FAILURE}}
+{\footnotesize\ttfamily \#define F\+A\+I\+L\+U\+RE~0}
+
+define action fail 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{etudiant_8h_a80df8585374f972bbc46252d071792eb}\label{etudiant_8h_a80df8585374f972bbc46252d071792eb}} 
+\index{etudiant.h@{etudiant.h}!deplacer@{deplacer}}
+\index{deplacer@{deplacer}!etudiant.h@{etudiant.h}}
+\subsubsection{\texorpdfstring{deplacer()}{deplacer()}}
+{\footnotesize\ttfamily int deplacer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structetudiant}{etudiant}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+simuler deplacer pour l\textquotesingle{}etudiant (changer etat interne structure) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+issu de l\textquotesingle{}excécution 
+\end{DoxyReturn}
+\mbox{\Hypertarget{etudiant_8h_a4cdbceb4b4cba498d04df4fe80a78d83}\label{etudiant_8h_a4cdbceb4b4cba498d04df4fe80a78d83}} 
+\index{etudiant.h@{etudiant.h}!dormir@{dormir}}
+\index{dormir@{dormir}!etudiant.h@{etudiant.h}}
+\subsubsection{\texorpdfstring{dormir()}{dormir()}}
+{\footnotesize\ttfamily int dormir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structetudiant}{etudiant}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+simuler dormir pour l\textquotesingle{}etudiant (changer etat interne structure) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+issu de l\textquotesingle{}excécution 
+\end{DoxyReturn}
+\mbox{\Hypertarget{etudiant_8h_a6793eb70ca32c5fb6bf10bb2233fe744}\label{etudiant_8h_a6793eb70ca32c5fb6bf10bb2233fe744}} 
+\index{etudiant.h@{etudiant.h}!etudier@{etudier}}
+\index{etudier@{etudier}!etudiant.h@{etudiant.h}}
+\subsubsection{\texorpdfstring{etudier()}{etudier()}}
+{\footnotesize\ttfamily int etudier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structetudiant}{etudiant}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+simuler etudier pour l\textquotesingle{}etudiant (changer etat interne structure) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+issu de l\textquotesingle{}excécution 
+\end{DoxyReturn}
+\mbox{\Hypertarget{etudiant_8h_a1454a17a803b243106208d078eb665cc}\label{etudiant_8h_a1454a17a803b243106208d078eb665cc}} 
+\index{etudiant.h@{etudiant.h}!examen@{examen}}
+\index{examen@{examen}!etudiant.h@{etudiant.h}}
+\subsubsection{\texorpdfstring{examen()}{examen()}}
+{\footnotesize\ttfamily int examen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structetudiant}{etudiant}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+simuler examen pour l\textquotesingle{}etudiant (changer etat interne structure) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+issu de l\textquotesingle{}excécution 
+\end{DoxyReturn}
+\mbox{\Hypertarget{etudiant_8h_ab491399abf8b8373cf9cb47077ffcc7c}\label{etudiant_8h_ab491399abf8b8373cf9cb47077ffcc7c}} 
+\index{etudiant.h@{etudiant.h}!init\_etudiant@{init\_etudiant}}
+\index{init\_etudiant@{init\_etudiant}!etudiant.h@{etudiant.h}}
+\subsubsection{\texorpdfstring{init\_etudiant()}{init\_etudiant()}}
+{\footnotesize\ttfamily int init\+\_\+etudiant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structetudiant}{etudiant}} $\ast$}]{e,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Initialise tout les composants de etudiant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+{\em n} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+issu de l\textquotesingle{}excécution 
+\end{DoxyReturn}
+\mbox{\Hypertarget{etudiant_8h_a1f707e2a8c3de469f5bb7018ce684241}\label{etudiant_8h_a1f707e2a8c3de469f5bb7018ce684241}} 
+\index{etudiant.h@{etudiant.h}!manger@{manger}}
+\index{manger@{manger}!etudiant.h@{etudiant.h}}
+\subsubsection{\texorpdfstring{manger()}{manger()}}
+{\footnotesize\ttfamily int manger (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structetudiant}{etudiant}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+simuler manger pour l\textquotesingle{}etudiant (changer etat interne structure) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+issu de l\textquotesingle{}excécution 
+\end{DoxyReturn}
+\mbox{\Hypertarget{etudiant_8h_a5eb2e2e6fa1d5c55cc35765ae36f6243}\label{etudiant_8h_a5eb2e2e6fa1d5c55cc35765ae36f6243}} 
+\index{etudiant.h@{etudiant.h}!recommencer@{recommencer}}
+\index{recommencer@{recommencer}!etudiant.h@{etudiant.h}}
+\subsubsection{\texorpdfstring{recommencer()}{recommencer()}}
+{\footnotesize\ttfamily void recommencer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structetudiant}{etudiant}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+permet de recommencer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{etudiant_8h_ab2f84946e431a9780bf70e1b9d51ec5c}\label{etudiant_8h_ab2f84946e431a9780bf70e1b9d51ec5c}} 
+\index{etudiant.h@{etudiant.h}!resultat@{resultat}}
+\index{resultat@{resultat}!etudiant.h@{etudiant.h}}
+\subsubsection{\texorpdfstring{resultat()}{resultat()}}
+{\footnotesize\ttfamily bool resultat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structetudiant}{etudiant}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+permet de savoir si l\textquotesingle{}etudiant a ru son examen 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si il a eu son examen sinon false 
+\end{DoxyReturn}

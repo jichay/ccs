@@ -7,32 +7,37 @@
 #include <stdbool.h>
 #include <assert.h>
 
-#define DONE 1
-#define FAILURE 0
+/**
+ * \file 
+ * \brief fichier etudiant avec ses variables et ses fonctions liee
+ */
+
+#define DONE 1 /**< define action reussite */
+#define FAILURE 0 /**< define action fail */
 
 /**
  * \struct etudiant
+ * \brief Structure etudiant qui represente l'objet sur lequel les actions seront execute.\n
+ *   actions possibles :
+ *       1) dormir
+ *       2) manger
+ *       3) deplacer
+ *       4) etudier
+ *       5) examen
  */
 typedef struct etudiant{
-    /*
-    actions possibles :
-        1) dormir
-        2) manger
-        3) déplacer
-        4) étudier
-        5) examen
-    */
-    bool a_dormi;
-    bool a_manger;
-    bool c_est_deplacer;
-    bool a_etudier;
-    bool a_eu_examen;
-    int resultat;
-    bool fin;
-    int derniere_action;
-    int nbr_actions;
+    
+    bool a_dormi; /**< bool pour savoir si il a dormi */
+    bool a_manger; /**< bool pour savoir si il a mange */
+    bool c_est_deplacer; /**< bool pour savoir si il c'est deplace */
+    bool a_etudier; /**< bool pour savoir si il a etudie */
+    bool a_eu_examen; /**< bool pour savoir si il a eu son examen */
+    int resultat; /**< sont resultat d'examen (entre 0 et 20) */
+    bool fin; /**< bool pour savoir si ses actions sont fini */
+    int derniere_action; /**< int pour connaitre l'id de la derniere action */
+    int nbr_actions; /**< nombre d'action associe a l'objet */
 
-    int matrice_relation[5][5];
+    int matrice_relation[5][5]; /**< matrice de relation des actions */
 
 } etudiant;
 
@@ -46,7 +51,7 @@ int init_etudiant(etudiant *e, int n);
 
 /**
  * \brief simuler dormir pour l'etudiant (changer etat interne structure)
- * \param E
+ * \param e
  * \return issu de l'excécution
  */
 int dormir(etudiant *e);

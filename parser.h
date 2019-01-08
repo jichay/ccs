@@ -5,12 +5,18 @@
 #include<string.h>
 #include<stdlib.h>
 /**
+ * \file  
+ * \brief fichier parser avec les structures des actions et le parser
+ */
+
+/**
  * \struct action
+ * \brief Structure action qui represente les actions a executer
  */
 typedef struct action{
-	char nom[20];
-	struct action *next_s; //Toujours utilisé
-	struct action *next_e; //Utilisé pour le process conditionnel
+	char nom[20]; /**< nom de l'action ou du processus */
+	struct action *next_s; /**< pointeur sur la prochaine action */ //Toujours utilisé
+	struct action *next_e; /**< pointeur optionnel sur les actions conditionnel */ //Utilisé pour le process conditionnel
 }action;
 
 /** \brief parse le fichier a executer
